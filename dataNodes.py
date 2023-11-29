@@ -21,7 +21,7 @@ class WordElement():
 
 
 
-''''
+'''
     PARSING: going through the whole document
 
 
@@ -83,4 +83,4 @@ class WordElement():
 
 
 
-''''
+'''
