@@ -59,12 +59,12 @@ class WordElement():
                 APPEND NODE TO ELEMENT_LIST
                 element_list.append(node)
 
+        OLD IDEA:
+            for word in wordlist:
+                word_set.append(word)
 
-        for word in wordlist:
-            word_set.append(word)
-
-            word_id <- return_wordID(word)
-            hits = 1
+                word_id <- return_wordID(word)
+                hits = 1
 
         RETURN element_list
 
@@ -81,7 +81,6 @@ class WordElement():
         word_list <- the function above
 
 
-    
 
 
 ''''
