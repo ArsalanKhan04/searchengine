@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message MetaData {
+    int32 totaldocs = 1;
+}
+
