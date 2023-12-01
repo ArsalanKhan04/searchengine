@@ -37,7 +37,7 @@ def UpdateLexicon(lexicon):
 # Making a list to simplify iteration
 lexicon_list = list(lexicon.wordlist)
 
-def GetWordID(word):
+def return_wordID(word):
     
     try:
         word_id = lexicon_list.index(word)
