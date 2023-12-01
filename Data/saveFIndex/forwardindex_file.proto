@@ -1,6 +1,18 @@
 syntax = "proto3";
 
-import "docelement_file.proto";
+message WordElement {
+    int32 word_id = 1;
+    int32 hits = 2;
+    bool title = 3;
+}
+
+message DocElement{
+    int32 doc_id = 1;
+    string title = 2;
+    string date = 3;
+    repeated WordElement wordelement = 4;
+    string url = 5;
+}
 
 message ForwardIndex{
     repeated DocElement docelement = 1;

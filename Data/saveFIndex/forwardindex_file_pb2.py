@@ -12,16 +12,19 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
-import docelement_file_pb2 as docelement__file__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x66orwardindex_file.proto\x1a\x15\x64ocelement_file.proto\"/\n\x0c\x46orwardIndex\x12\x1f\n\ndocelement\x18\x01 \x03(\x0b\x32\x0b.DocElementb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x66orwardindex_file.proto\";\n\x0bWordElement\x12\x0f\n\x07word_id\x18\x01 \x01(\x05\x12\x0c\n\x04hits\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\x08\"i\n\nDocElement\x12\x0e\n\x06\x64oc_id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x03 \x01(\t\x12!\n\x0bwordelement\x18\x04 \x03(\x0b\x32\x0c.WordElement\x12\x0b\n\x03url\x18\x05 \x01(\t\"/\n\x0c\x46orwardIndex\x12\x1f\n\ndocelement\x18\x01 \x03(\x0b\x32\x0b.DocElementb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'forwardindex_file_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._loaded_options = None
-  _globals['_FORWARDINDEX']._serialized_start=50
-  _globals['_FORWARDINDEX']._serialized_end=97
+  _globals['_WORDELEMENT']._serialized_start=27
+  _globals['_WORDELEMENT']._serialized_end=86
+  _globals['_DOCELEMENT']._serialized_start=88
+  _globals['_DOCELEMENT']._serialized_end=193
+  _globals['_FORWARDINDEX']._serialized_start=195
+  _globals['_FORWARDINDEX']._serialized_end=242
 # @@protoc_insertion_point(module_scope)

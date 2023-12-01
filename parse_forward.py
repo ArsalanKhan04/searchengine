@@ -16,7 +16,9 @@
 
 '''
 
-from dataNodes import DocElement, WordElement
+# from dataNodes import DocElement, WordElement # Before, dataNodes were used, but now proto data will be used so it is easily stored
+
+import Data.saveFIndex.forwardindex_file_pb2 as fpb
 from wordlexicon import return_wordID
 
 def makeElemList(titleList, wordList):
@@ -27,7 +29,10 @@ def makeElemList(titleList, wordList):
             index = parsed_words[word]      
             elemList[index].hits += 1
         else: 
-            word_node = WordElement(return_wordID(word), 1, 1)
+            word_node = fpb.WordElement()
+            word_node.word_id = return_wordID(word)
+            word_node.hits = 1
+            word_node.title = True
             parsed_words[word] = len(elemList)
             elemList.append(word_node)
     for word in wordList:
@@ -35,7 +40,10 @@ def makeElemList(titleList, wordList):
             index = parsed_words[word]      
             elemList[index].hits += 1
         else: 
-            word_node = WordElement(return_wordID(word), 1, 0)
+            word_node = fpb.WordElement()
+            word_node.word_id = return_wordID(word)
+            word_node.hits = 1
+            word_node.title = False
             parsed_words[word] = len(elemList)
             elemList.append(word_node)
     return elemList
@@ -43,5 +51,10 @@ def makeElemList(titleList, wordList):
 def parse(article, doc_id):
     titleList = article['title'].split()
     wordList = article['content'].split()
-    doc_node = DocElement(doc_id, article['title'], article['date'], makeElemList(titleList, wordList),article['url'])
+    doc_node = fpb.DocElement()
+    doc_node.doc_id = doc_id
+    doc_node.title = article['title']
+    doc_node.date = article['date']
+    doc_node.wordelement.extend(makeElemList(titleList, wordList))
+    doc_node.url = article['url']
     return doc_node

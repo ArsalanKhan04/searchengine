@@ -17,7 +17,7 @@ as defined by our lexicon
 
 
 # Importing and reading our lexicon
-import lexicon_proto_file_pb2 as lexproto
+import lexicon.lexicon_proto_file_pb2 as lexproto
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 

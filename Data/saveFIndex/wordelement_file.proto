@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-message WordElement {
-    int32 word_id = 1;
-    int32 hits = 2;
-    bool title = 3;
-}
-
