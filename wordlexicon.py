@@ -39,6 +39,9 @@ lexicon_list = list(lexicon.wordlist)
 
 def return_wordID(word):
     
+    word = word.lower()
+    word = "".join(char for char in word if char.isalpha())
+
     try:
         word_id = lexicon_list.index(word)
         return word_id
