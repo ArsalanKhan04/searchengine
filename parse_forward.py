@@ -24,28 +24,36 @@ from wordlexicon import return_wordID
 def makeElemList(titleList, wordList):
     elemList = []
     parsed_words = {}
+    position = 0
     for word in titleList:
         if word in parsed_words.keys():
             index = parsed_words[word]      
             elemList[index].hits += 1
+            elemList[index].position.append(position)
         else: 
+            # WordElement(return_wordID(word), 1, 1)
             word_node = fpb.WordElement()
             word_node.word_id = return_wordID(word)
             word_node.hits = 1
             word_node.title = True
+            word_node.position.append(position)
             parsed_words[word] = len(elemList)
             elemList.append(word_node)
+        position+=1
     for word in wordList:
         if word in parsed_words.keys():
             index = parsed_words[word]      
             elemList[index].hits += 1
+            elemList[index].position.append(position)
         else: 
             word_node = fpb.WordElement()
             word_node.word_id = return_wordID(word)
             word_node.hits = 1
             word_node.title = False
+            word_node.position.append(position)
             parsed_words[word] = len(elemList)
             elemList.append(word_node)
+        position+=1
     return elemList
 
 def parse(article, doc_id):

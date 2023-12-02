@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0emetadata.proto\"9\n\x08MetaData\x12\x11\n\ttotaldocs\x18\x01 \x01(\x05\x12\x1a\n\x11\x66orwardindexlimit\x18\xe8\x07 \x01(\x05\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0emetadata.proto\"O\n\x08MetaData\x12\x11\n\ttotaldocs\x18\x01 \x01(\x05\x12\x19\n\x11\x66orwardindexlimit\x18\x02 \x01(\x05\x12\x15\n\rlexiconheight\x18\x03 \x01(\x05\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,5 +22,5 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'metadata_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._loaded_options = None
   _globals['_METADATA']._serialized_start=18
-  _globals['_METADATA']._serialized_end=75
+  _globals['_METADATA']._serialized_end=97
 # @@protoc_insertion_point(module_scope)

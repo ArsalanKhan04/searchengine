@@ -2,6 +2,7 @@ syntax = "proto3";
 
 message MetaData {
     int32 totaldocs = 1;
-    int32 forwardindexlimit = 1000;
+    int32 forwardindexlimit = 2;
+    int32 lexiconheight = 3;
 }
 
