@@ -7,10 +7,16 @@ import Data.saveIIndex.invDS as invDS
 
 def return_docelem(doc_id, word_element):
 
-    # Edit code here
-
+   
+    
     docelem = invDS.DocElement()
-    return docelem
+    if docelem:
+        docelem.word_id = word_element.word_id
+        docelem.hits = word_element.hits
+        docelem.title = word_element.title
+        docelem.position.extend(word_element.position)
+    return docelem 
+    
 
 
 if __name__ == '__main__':
