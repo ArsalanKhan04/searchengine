@@ -7,9 +7,10 @@ import Data.saveIIndex.invDS as invDS
 
 def return_docelem(doc_id, word_element):
 
-    # Edit code here
 
-    docelem = invDS.DocElement()
+    docelem = invDS.DocElement(doc_id, word_element.hits, word_element.title, list(word_element.position), invDS.calculate_importance(word_element.hits, word_element.title))
+
+
     return docelem
 
 
@@ -24,4 +25,6 @@ if __name__ == '__main__':
     print("helper functions running")
 
     demo_docelem = return_docelem(10, demo_wordelem)
+
+    print(demo_docelem.importance)
 
