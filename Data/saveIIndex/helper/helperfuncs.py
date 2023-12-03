@@ -1,5 +1,8 @@
+import sys, os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(os.getcwd()))))
 from Data.saveFIndex import forwardindex_file_pb2 as fpb
-import invDS
+
+import Data.saveIIndex.invDS as invDS
 
 
 def return_docelem(doc_id, word_element):
