@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x66orwardindex_file.proto\"M\n\x0bWordElement\x12\x0f\n\x07word_id\x18\x01 \x01(\x05\x12\x0c\n\x04hits\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\x08\x12\x10\n\x08position\x18\x04 \x03(\x05\"i\n\nDocElement\x12\x0e\n\x06\x64oc_id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x03 \x01(\t\x12!\n\x0bwordelement\x18\x04 \x03(\x0b\x32\x0c.WordElement\x12\x0b\n\x03url\x18\x05 \x01(\t\"/\n\x0c\x46orwardIndex\x12\x1f\n\ndocelement\x18\x01 \x03(\x0b\x32\x0b.DocElementb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x66orwardindex_file.proto\"M\n\x0bWordElement\x12\x0f\n\x07word_id\x18\x01 \x01(\x05\x12\x0c\n\x04hits\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\x08\x12\x10\n\x08position\x18\x04 \x03(\x05\"?\n\nDocElement\x12\x0e\n\x06\x64oc_id\x18\x01 \x01(\x05\x12!\n\x0bwordelement\x18\x02 \x03(\x0b\x32\x0c.WordElement\"/\n\x0c\x46orwardIndex\x12\x1f\n\ndocelement\x18\x01 \x03(\x0b\x32\x0b.DocElementb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,7 +24,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_WORDELEMENT']._serialized_start=27
   _globals['_WORDELEMENT']._serialized_end=104
   _globals['_DOCELEMENT']._serialized_start=106
-  _globals['_DOCELEMENT']._serialized_end=211
-  _globals['_FORWARDINDEX']._serialized_start=213
-  _globals['_FORWARDINDEX']._serialized_end=260
+  _globals['_DOCELEMENT']._serialized_end=169
+  _globals['_FORWARDINDEX']._serialized_start=171
+  _globals['_FORWARDINDEX']._serialized_end=218
 # @@protoc_insertion_point(module_scope)

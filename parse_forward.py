@@ -19,7 +19,7 @@
 # from dataNodes import DocElement, WordElement # Before, dataNodes were used, but now proto data will be used so it is easily stored
 
 import Data.saveFIndex.forwardindex_file_pb2 as fpb
-from wordlexicon import return_wordID
+from wordlexicon import return_wordID, lexicon_list
 
 def makeElemList(titleList, wordList):
     elemList = []
@@ -61,8 +61,35 @@ def parse(article, doc_id):
     wordList = article['content'].split()
     doc_node = fpb.DocElement()
     doc_node.doc_id = doc_id
-    doc_node.title = article['title']
-    doc_node.date = article['date']
     doc_node.wordelement.extend(makeElemList(titleList, wordList))
-    doc_node.url = article['url']
     return doc_node
+
+
+'''
+    We will now be making additional functions that make forward indexes based on barrels
+'''
+
+#   I have decided not to make barrels for now as i believe my code will perform better for only invIndex Barrels
+#   Barrels for forward_index would be of a different type
+
+'''
+def makeElemList_barrel(titleList, wordList, barrel_size, barrel_index):
+
+
+def parse_into_barrels(article, doc_id, barrel_size):
+    total_words = len(lexicon_list)
+    no_of_barrels = (total_words // barrel_size) + 1
+    doc_nodes = [fpb.DocElement()] * no_of_barrels
+    for doc_node in doc_nodes:
+        titleList = article['title'].split()
+        wordList = article['content'].split()
+        doc_node = fpb.DocElement()
+        doc_node.doc_id = doc_id
+        doc_node.title = article['title']
+        doc_node.date = article['date']
+        doc_node.wordelement.extend(makeElemList(titleList, wordList))
+        doc_node.url = article['url']
+    return doc_nodes
+
+
+'''

@@ -7,12 +7,16 @@ message WordElement {
     repeated int32 position = 4;
 }
 
+/*
+    Some changes for DocElement:
+    Previously I also had title, date and url stored here but I am moving that to doc_data now
+
+    New DocElement will only have doc_id and wordelements stored
+*/
+
 message DocElement{
     int32 doc_id = 1;
-    string title = 2;
-    string date = 3;
-    repeated WordElement wordelement = 4;
-    string url = 5;
+    repeated WordElement wordelement = 2;
 }
 
 message ForwardIndex{
