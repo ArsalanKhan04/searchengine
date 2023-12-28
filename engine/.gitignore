@@ -1,0 +1,5 @@
+forwardindex/data/
+invertedindex/data/
+.ipynb_checkpoints/
+docdata/*.pb
+json_data/

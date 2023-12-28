@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message Lexicon {
+	repeated string wordlist = 1;
+}
+
+

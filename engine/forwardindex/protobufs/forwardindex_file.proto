@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+message WordElement {
+    int32 word_id = 1;
+    int32 hits = 2;
+    bool title = 3;
+    repeated int32 position = 4;
+}
+
+/*
+    Some changes for DocElement:
+    Previously I also had title, date and url stored here but I am moving that to doc_data now
+
+    New DocElement will only have doc_id and wordelements stored
+*/
+
+message DocElement{
+    int32 doc_id = 1;
+    repeated WordElement wordelement = 2;
+}
+
+message ForwardIndex{
+    repeated DocElement docelement = 1;
+}
+
