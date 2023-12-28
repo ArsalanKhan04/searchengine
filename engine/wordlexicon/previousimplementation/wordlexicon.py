@@ -17,11 +17,11 @@ as defined by our lexicon
 
 
 # Importing and reading our lexicon
-import previousimplementation.lexicon_proto_file_pb2 as lexproto
+import wordlexicon.previousimplementation.lexicon_proto_file_pb2 as lexproto
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
-lexicon_pb_path = r"./previousimplementation/lexicon.pb"
+lexicon_pb_path = r"wordlexicon/previousimplementation/lexicon.pb"
 lexicon = lexproto.Lexicon()
 
 with open(lexicon_pb_path, 'rb') as file:

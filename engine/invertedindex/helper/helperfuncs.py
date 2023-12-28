@@ -8,7 +8,7 @@ import invertedindex.invDS as invDS
 def return_docelem(doc_id, word_element):
 
 
-    docelem = invDS.DocElement(doc_id, word_element.hits, word_element.title, list(word_element.position), invDS.calculate_importance(word_element.hits, word_element.title))
+    docelem = invDS.DocElement(doc_id, word_element.hits, word_element.title, list(word_element.position), 0)
 
 
     return docelem
