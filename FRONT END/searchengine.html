@@ -1,0 +1,73 @@
+<html>
+    
+<head>
+    <meta charset="utf-8">
+    <title>New Tab</title>
+    <style>
+      body {
+        background: #e7e9ec;
+        margin: 0;
+        justify-content: center;
+      }
+      .container {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Optional: horizontally center the content */
+            height: 100vh;
+        }
+
+      #backgroundImage {
+        border: none;
+        height: 100%;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        visibility: hidden;
+        width: 100%;
+      }
+
+      [show-background-image] #backgroundImage {
+        visibility: visible;
+      }
+      h1{
+        font-size: larger;
+            text-align: center;
+            color: rebeccapurple;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+      form {
+            text-align: center;
+        }
+
+        /* Style for the label */
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+      #searchInput {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px; /* Adjust the width as needed */
+        }
+      button {
+            padding: 8px 16px;
+            border-radius: 5px;
+            border: 1px solid #007BFF;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+  </head>
+    <body>
+      <form action="/search" method="GET">
+        <label for="searchInput">Search:</label>
+        <input type="text" id="searchInput" name="q" placeholder="search">
+        <button type="submit">Search</button>
+    </form>
+        <div class="container">
+            <h1>uR cReatioN</h1>
+        </div>
+    </body>
+</html>
