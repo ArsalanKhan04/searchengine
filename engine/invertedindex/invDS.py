@@ -18,23 +18,10 @@ class InvertedIndex():
     def __init__(self, index_height):
         self.index_height = index_height
         self.wordelems = [[] for _ in range (index_height)]
-    def bin_insert(self, docelem, word_id):
+    def insert(self, docelem, word_id):
         
         list_ins = self.wordelems[word_id]
-        # Will do a binary insertion over here inside the sorted list
-        low = 0
-        high = len(list_ins) - 1
-
-        while low <= high:
-            mid = (low + high) // 2
-
-            if list_ins[mid].importance < docelem.importance:
-                high = mid - 1
-            else:
-                low = mid + 1
-
-
-        list_ins.insert(low, docelem)
+        list_ins.append(docelem)
 
     def serialize_to_binary(self, filename):
         with open(filename, "wb") as file:
