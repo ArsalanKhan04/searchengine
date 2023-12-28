@@ -31,6 +31,10 @@ def proximity_score(positions):
     for i in range(1,len(merged_pos)):
         differences.append(merged_pos[i]-merged_pos[i-1])
 
+    sorted_differences = sorted(differences)
+    div_point = len(sorted_differences) // 5
+    sorted_differences = sorted_differences[:div_point]
+
     difference_score = (sum(differences)+1)/(len(differences) + 0.001)
     
     # print(merged_pos)
@@ -47,10 +51,10 @@ def return_rank(docelem_list):
     importance = 0
     # Calculate importance based on hits, title presence and size of doc_element list
     for docelem in docelem_list:
-        importance += (docelem.hits * (3 ** docelem.titlebool))
+        importance += (docelem.hits * (10 ** docelem.titlebool))
     
-    importance += 10**size
-    importance += proximity_score([docelem.position_list for docelem in docelem_list])
+    importance += 100**size
+    #importance += proximity_score([docelem.position_list for docelem in docelem_list])
 
     return -importance, doc_id 
 
