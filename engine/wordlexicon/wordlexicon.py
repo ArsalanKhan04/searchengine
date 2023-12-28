@@ -20,16 +20,16 @@ as defined by our lexicon
 import pickle
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
-from wordlexicon.trie import Trie
+from wordlexicon.lexiconDS import NewLexicon
 import string
 
-lexicon_triepath = "wordlexicon/lexiconTrie.pkl"
+lexicon_path = "wordlexicon/lexicondict.pkl"
 
 
-lexTrie = Trie()
+newLex = NewLexicon()
 # Getting lexicon and saving its trie
-with open(lexicon_triepath, "rb") as file:
-    lexTrie = pickle.load(file)
+with open(lexicon_path, "rb") as file:
+    newLex = pickle.load(file)
 
 
 def RemovePunctuation(word):
@@ -37,36 +37,33 @@ def RemovePunctuation(word):
 
 
 def UpdateLexicon():
-    with open(lexicon_triepath, "wb") as file:
-        pickle.dump(lexTrie, file)
+    with open(lexicon_path, "wb") as file:
+        pickle.dump(newLex, file)
 
 def GetLexiconSize():
-    return lexTrie.size
+    return newLex.size
 
 def return_wordID(word):
-    
     word = word.lower()
     word = "".join(char for char in word if char.isalpha())
-
+    
     try:
-        word_id = lexTrie.get_index(word)
-        if word_id == -1:
-            raise ValueError
-        return word_id
-    except ValueError:
+        word_id = newLex.get_wordID(word)
+    except KeyError:
         pass
 
     
     for pos in ['n', 'v', 'a', 'r']:
         lemmatized_word = lemmatizer.lemmatize(word, pos)
         try:
-            word_id = lexTrie.get_index(lemmatized_word)
-            if word_id == -1:
-                raise ValueError
+            word_id = newLex.get_wordID(lemmatized_word)
             return word_id
-        except ValueError:
+        except KeyError:
             pass
 
-    word_id = lexTrie.size
-    lexTrie.insert(word, word_id)
+    word_id = newLex.size
+    newLex.insert(word)
     return word_id
+
+def return_word(index):
+    return newLex.get_word(index)

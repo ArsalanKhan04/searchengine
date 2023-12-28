@@ -11,7 +11,7 @@ class NewLexicon:
         return self.wordlist[index]
     
     def insert(self, word):
-        self.wordlist[self.size] = word
+        self.wordlist.append(word)
         self.worddict[word] = self.size
         self.size+=1
 
