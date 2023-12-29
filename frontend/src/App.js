@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Button, Navbar, Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const SearchApp = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [time, setTime] = useState(0.0);
-  const [count, setCount] = useState(0.0);
+  const [count, setCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const resultsPerPage = 10; // Set the number of results to display per page
+  const totalPages = Math.ceil(results.length / resultsPerPage);
 
   const handleSearch = () => {
     axios
@@ -28,60 +31,93 @@ const SearchApp = () => {
     const startIndex = (currentPage - 1) * resultsPerPage;
     const endIndex = startIndex + resultsPerPage;
     const currentResults = results.slice(startIndex, endIndex);
-    
+
     return (
-      <ul>
+      <Container>
         {currentResults.map((result, index) => (
-          <li key={index}>
-            <a href={result.url}>{result.title}</a>
-            <p>Date: {result.date}</p>
-            <p>{result.chars500}</p>
-          </li>
+          <Row key={index} className="mb-3">
+            <Col>
+              <h4><a href={result.url}>{result.title}</a></h4>
+              <p>Date: {result.date}</p>
+              <p>{result.chars500}</p>
+            </Col>
+          </Row>
         ))}
-      </ul>
+      </Container>
     );
   };
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
-  const totalPages = Math.ceil(results.length / resultsPerPage);
+
   return (
     <div>
-      <h1>Search App</h1>
-      <div>
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Enter your search query"
-        />
-        <button onClick={handleSearch}>Search</button>
-      </div>
-      <div>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#">Search Engine</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Enter your search query"
+            className="mr-2 form-control"
+          />
+          <Button onClick={handleSearch}>Search</Button>
+        </Navbar.Collapse>
+      </Navbar>
+
+      <Container className="mt-4">
         {/* Display search statistics */}
         {count !== 0 ? (
-          <h3>Generated {count.toFixed(2)} pages in {time} s</h3>
+          <div>
+            <Row>
+              <Col>
+
+                <h2>Search Results:</h2>
+              </Col>
+              <Col className="text-right">
+              <p >Generated {count} pages in {time.toFixed(2)} s</p>
+             
+                 </Col>
+            </Row>
+            
+
+            <br/>
+            <br/>
+          </div>
         ) : (
-          <h3>Enter Query Above</h3>
+          <br/>
         )}
 
-        <h2>Search Results:</h2>
 
         {/* Render current page results */}
         {renderResults()}
 
         {/* Pagination controls */}
-        <div>
-          <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
+        {
+          count === 0 ? (<br></br>) :
+          (<div className="text-center mt-4">
+          <Button
+            variant="primary"
+            disabled={currentPage === 1}
+            onClick={() => handlePageChange(currentPage - 1)}
+          >
             Previous
-          </button>
-          <span> Page {currentPage} of {totalPages} </span>
-          <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
+          </Button>
+          <span className="mx-3"> Page {currentPage} of {totalPages} </span>
+          <Button
+            variant="primary"
+            disabled={currentPage === totalPages}
+            onClick={() => handlePageChange(currentPage + 1)}
+          >
             Next
-          </button>
-        </div>
-      </div>
+          </Button>
+        </div>)
+        }
+        
+      </Container>
     </div>
   );
 };
