@@ -27,4 +27,5 @@ def get_lists(word_ids):
 
 
 def flush():
+    global open_invertedindex
     open_invertedindex={}

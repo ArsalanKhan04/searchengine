@@ -33,4 +33,5 @@ def get_docdata(doc_id):
     }
 
 def flush():
+    global open_docs
     open_docs = {}
